@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JavaScript Trading Card Battle (MVP)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main id="app">
+    <header>
+      <h1>Trading Card Battle</h1>
+      <p class="subtitle">Player vs Computer — simple card duel to learn DOM & game logic</p>
+    </header>
+
+    <section class="scoreboard" aria-live="polite">
+      <div>Wins: <span id="wins">0</span></div>
+      <div>Losses: <span id="losses">0</span></div>
+      <div>Draws: <span id="draws">0</span></div>
+    </section>
+
+    <section class="controls">
+      <button id="drawBtn">Draw Card</button>
+      <button id="customizeBtn">Create Custom Card</button>
+      <button id="resetScoreBtn" title="Reset scores">Reset Scores</button>
+    </section>
+
+    <section class="battle-area" aria-live="polite">
+      <div class="card-slot" id="playerSlot" tabindex="0" aria-label="Player card">
+        <h3>Player</h3>
+        <div class="card-placeholder">No card</div>
+      </div>
+
+      <div class="versus">VS</div>
+
+      <div class="card-slot" id="computerSlot" tabindex="0" aria-label="Computer card">
+        <h3>Computer</h3>
+        <div class="card-placeholder">No card</div>
+      </div>
+    </section>
+
+    <section id="result" class="result" aria-live="assertive"></section>
+
+
+    <!-- Custom Card Dialog -->
+    <dialog id="customCardDialog">
+      <form method="dialog" id="customForm">
+        <h3>Create a Custom Card</h3>
+        <label>
+          Name
+          <input type="text" id="customName" maxlength="20" required>
+        </label>
+        <label>
+          Attack (1-10)
+          <input type="number" id="customAttack" min="1" max="10" value="5" required>
+        </label>
+        <label>
+          Defense (1-10)
+          <input type="number" id="customDefense" min="1" max="10" value="5" required>
+        </label>
+        <menu>
+          <button id="saveCustom" type="submit">Save</button>
+          <button id="cancelCustom" type="button">Cancel</button>
+        </menu>
+      </form>
+    </dialog>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
